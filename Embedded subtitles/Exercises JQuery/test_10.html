@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-git.js"></script>
   <meta charset="utf-8">
   <title>JS Bin</title>
-  <script src="selectChildrenOfElementAndAplicateFormat.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("div > h1").css("background", "#0686c9");
+  });
+  </script>
 </head>
 <body>
 <h1>abc</h1>
