@@ -2,7 +2,7 @@
 var captionFormat = "srt";
 var videoId = "QdjO0e10O_I";
 var fieldsOfQuery = "items/id"
-
+var doneCaption = false;
 
 function getIdCaption() {
   gapi.client.youtube.captions.list({

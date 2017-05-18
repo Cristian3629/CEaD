@@ -18,7 +18,11 @@ function parserCaption(caption){
   for (var i = 0; i < len -1; i++) {
       console.log("pos:["+i*elementForLine + 2 +"]:"+res[i*elementForLine + 2]);
       var line = $("<p></p>");
-      line.text(res[i*elementForLine + 2]);
+      line.text( res[ i*elementForLine + 2 ] );
+      line.val( res[ i*elementForLine +1 ] );
+      line.addClass('line');
       $("#caption").append(line);
     }
+
+
   }

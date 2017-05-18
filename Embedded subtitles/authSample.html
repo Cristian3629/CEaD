@@ -20,7 +20,7 @@
 <html>
   <head>
     <title>Say hello using the Youtube API</title>
-    <meta charset='utf-8' />
+    <meta charset='iso-8859-1' />
   </head>
   <body>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -32,14 +32,13 @@
 
     <div id="content"></div>
     <div>
-      <iframe id = "player" width="420" height="315"
-        src="https://www.youtube.com/embed/QdjO0e10O_I?controls=0">
-      </iframe>
+      <div id = "player"></div>
       <div id = "caption">
-
+        <p>x0 </p>
+        <p>x3 </p>
       </div><br>
     </div>
-
+    <script src="playerYoutube.js"></script>
     <script src="auth.js"></script>
     <script src="apiCalls.js"></script>
     <script src="captionParse.js"></script>
@@ -48,5 +47,6 @@
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
+    <script src="setTimeWithClickInLine.js"></script>
   </body>
 </html>
