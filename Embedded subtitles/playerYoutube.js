@@ -22,6 +22,7 @@
 //Si ya se buffereo todo, lo reproduzco
 function onPlayerReady(event){
         event.target.playVideo();
+        refreshTime();
 }
 
 
@@ -30,7 +31,9 @@ function onPlayerReady(event){
 //Dado que esta reproduciendo
 function onPlayerStateChange(event){
   if (event.data == YT.PlayerState.PLAYING) {
-    console.log("Se esta reproduciendo");
+    refreshTime();
+  }else {
+    stopRefreshTime();
   }
 }
 

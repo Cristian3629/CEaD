@@ -31,9 +31,9 @@ var preselectChapter = null;
 
     //obtengo el time de la linea que tocaron
     var time = $(this).val();
-    var array = time.split("-->");
-    var totalSeconds = getSeconds(array[0]);
-    player.seekTo(totalSeconds);
+
+    //var totalSeconds = getSeconds(time);
+    player.seekTo(time);
     event.stopPropagation();
   });
 
@@ -43,12 +43,13 @@ var preselectChapter = null;
 function getSeconds(time){
   //array es el del tipo ["hh","mm","ss,ms"]
   var hhMmSsArray = time.split(":");
-  var secondsArray = hhMmSsArray[2].split(",");
+  var secondsString = hhMmSsArray[2];
+  var secondsArray = secondsString.split(",");
   var hoursInSeconds = parseInt(hhMmSsArray[0])*60*60;
   var minutesInSeconds = parseInt(hhMmSsArray[1])*60;
   var seconds = parseInt(secondsArray[0]);
   var miliseconds = parseInt(secondsArray[1])/1000;
-  var time = hoursInSeconds + minutesInSeconds + seconds + miliseconds;
+  var time = hoursInSeconds + minutesInSeconds + seconds;
   //console.log("Son:"+time+" segundos");
   return time;
 }

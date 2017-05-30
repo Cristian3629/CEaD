@@ -1,25 +1,42 @@
-#caption{
-  border: 1px solid black;
-  width: 500px;
-  height:300px;
-  right: "100px";
-  float:right;
-  overflow:auto;
-  position: relative;
+:root {
+  --width-video: 854px;
+  --height-video: 480px;
+  --height-container-down: var(--height-video)*0.5;
 }
-#chapters{
-  position: relative;
-  border: 1px solid black;
-  width: 200px;
-  height:200px;
-  float:left;
-  overflow:auto;
-}
-#down{
-  bottom: 1px;
-  height:500;
-  width: 300;
-}
+/**/
 #player{
-  top:1px;
+  width:var(--width-video);
+  height:var(--height-video);
+}
+/**/
+.container{
+  position: relative;
+}
+/**/
+.container_down{
+  width:var(--width-video);
+  height:var(--height-container-down);
+}
+/*La posicion es relativo al que lo contiene*/
+
+#chapters{
+  float:left;
+  position: relative;
+  top:0px;
+  width:200px;
+  height:var(--height-container-down);
+  overflow:auto;
+  background-color: blue;
+
+}
+
+/*La posicion es relativo al que lo contiene*/
+#caption{
+  position: fixed;
+  left:350px;
+  width:505px;
+  height:480px;
+  overflow:auto;
+  background-color: green;
+
 }

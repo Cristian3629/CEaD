@@ -39,6 +39,8 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     signoutButton.style.display = 'block';
+    //primer llamado a la API
+    getTitle();
     getIdCaption();
   } else {
     authorizeButton.style.display = 'block';

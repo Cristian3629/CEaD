@@ -9,16 +9,19 @@ Me genera  4 lineas mas
 Por eso hago res.length / 4
 De esas 4 lineas, solo me interesa el time y el texto, por eso hago for 1 a 2
 */
-
-
+var lineas = [];
+var capitulos = [];
 function parserCaption(caption){
   var res = caption.split("\n");
   var len = res.length / 4;
   var elementForLine = 4;
   for (var i = 0; i < len -1; i++) {
-      console.log("pos:["+i*elementForLine + 2 +"]:"+res[i*elementForLine + 2]);
+      //console.log("pos:["+i*elementForLine + 2 +"]:"+res[i*elementForLine + 2]);
       var line = $("<p></p>");
-      line.val( res[ i*elementForLine +1 ] );
+      var array = (res[i*elementForLine +1]).split("-->");
+      line.val(getSeconds(array[0]));
+      //console.log("Segundos: "+getSeconds(array[0]));
+      //line.val( res[ i*elementForLine +1 ] );
       //Aca me fijo si mi caption es un indice o un caption
       var caption = res[i*elementForLine + 2];
       var n = caption.search("Tema:");
@@ -27,10 +30,12 @@ function parserCaption(caption){
       if (n == -1){
         line.addClass('line');
         $("#caption").append(line);
+        lineas.push(line);
       }else{
         line.addClass('chapter');
         $("#chapters").append(line);
-        console.log("Este es un tema:"+caption);
+        capitulos.push(line);
+        //console.log("Este es un tema:"+caption);
       }
 
 
