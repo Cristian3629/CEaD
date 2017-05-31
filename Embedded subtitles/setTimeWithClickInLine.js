@@ -1,6 +1,5 @@
 var preselectCaption = null;
 var preselectChapter = null;
-
   $("div").on('click', 'p', function(event){
     //Al elemento seleccionado lo pongo en negrita
     $(this).css({
@@ -14,7 +13,8 @@ var preselectChapter = null;
          });
      }
     preselectCaption = selectElement;
-    console.log('toque en una linea');
+    preselectCaption.position().top;
+    console.log('toque en una linea:'+ preselectCaption.position().top);
     }else{
       console.log('toque un capitulo');
       if(preselectChapter != null && !preselectChapter.is(selectElement)){

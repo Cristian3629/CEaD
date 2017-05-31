@@ -52,7 +52,8 @@ function getCaption(idCaption){
     tfmt: captionFormat
   }).then(function(response){
       var caption = response.body;
-      //console.log(caption);
+      //var encodedCaption = decodeURIComponent(escape(response.body));
+      //console.log(encodedCaption);
       parserCaption(caption);
   });
 }

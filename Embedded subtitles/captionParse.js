@@ -1,4 +1,4 @@
-//Dado un caption, lo formateo
+//Dado un caption entero, lo formateo
 //Ejemplo
 /*135
 00:07:57,530 --> 00:08:03,310
@@ -26,7 +26,8 @@ function parserCaption(caption){
       var caption = res[i*elementForLine + 2];
       var n = caption.search("Tema:");
       //Si no es un indice
-      line.text( res[ i*elementForLine + 2 ] );
+
+      line.text(decodeURIComponent(escape(res[ i*elementForLine + 2 ])));
       if (n == -1){
         line.addClass('line');
         $("#caption").append(line);
