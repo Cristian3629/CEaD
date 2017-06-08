@@ -252,7 +252,7 @@ a:active
 
 
 
-/*Listas*/
+/*LISTAS*/
 /*ul es no ordenado, y ol es ordenado*/
 **Para definir que icono va a ir en la lista (circle,square,upper-roman,lower-alpha,none)
 list-style-type
@@ -275,25 +275,55 @@ margin
 list-style: square inside url("sqpurple.gif");
 
 
-/*Display*/
+/*DISPLAY*/
 /*Esto se refiere a como se muestra los elementos, y si se muestra
 Por defecto los elementos tienen los valores 'block' u 'inline'. También esta none
-Block: Quiere decir que va aparecer en una linea.
+Block: Quiere decir que va aparecer en una linea distinta.
 Inline: Quiere decir que se muestra en la misma linea.
 
 Block por defecto:<div> <hi> <p> <form> <header> <footer> <section>
 Inline por defecto:<span> <a> <img>
 */
 
-/*Posicion*/
+/*POSICION*/
 /*Es para setear la posicion del elemento.*/
 
 **para definir la posicion(static,relative,fixed,absolute)
 
 /*
-static: En esta, si seteo la posicion con right,left,top. No tiene efecto.
-relative: Acá si seteo la posición si tiene efecto, y se mueve de manera relativa
+- static: En esta, si seteo la posicion con right,left,top. No tiene efecto.
+- relative: Acá si seteo la posición si tiene efecto, y se mueve de manera relativa
 a su posicion normal.
-fidex: Si seteo la posicion, esta se queda ahi aun cuando scrolee la ventana.
-absolute: Este depende de quien contiene al elemento.
+- fidex: Si seteo la posicion, esta se queda ahi aun cuando scrolee la ventana.
+- absolute: Este depende de quien contiene al elemento.
 */
+position
+
+
+/*OVERFLOW*/
+Esto tiene sentido si es que definimos un cierto width,height.
+/*
+- visible: digamos que si hay un offset, esto se muestra igual.
+- hidden: si hay un offset, esto no se muestra.
+- scroll: este hace un scroll, pero lo hace tanto en x como en y, aun cuando no
+es necesario.
+- auto: este hace el scroll solo en los ejes que hace falta.
+*/
+'overflow'
+'overflow-x'
+'overflow-y'
+/*FLOAT y CLEAR*/
+
+/*Según lo entendido, esto es lo que permite que un elemento flote alredor de otro.*/
+float
+
+/*CLEAR*/
+
+/*Es para definir a qué lado no puede ir.*/
+
+
+
+/*INLINE-BLOCK*/
+
+/*Esto es para poner una al lado de otro usando la propiedad display*/
+display: inline-block;
