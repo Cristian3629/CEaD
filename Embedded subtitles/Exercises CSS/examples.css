@@ -327,3 +327,423 @@ float
 
 /*Esto es para poner una al lado de otro usando la propiedad display*/
 display: inline-block;
+
+
+/*NAVIGATION BAR*/
+
+Si tengo este codigo HTML.
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+Y este como style
+
+li a {
+    display: block;
+    width: 60px;
+    background-color: #dddddd;
+}
+
+Si saco el display, el background-color solo se muestra sobre la letra, ahora
+si está el display:block; se colorea toda una zona rectangular alrededor del item
+
+'display: block; - Displaying the links as block elements makes the whole
+link area clickable (not just the text), and it allows us to specify the width
+(and padding, margin, height, etc. if you want)'
+
+
+Acá hay un ejemplo
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+    //Esto es para que no se muestre el * - o el circulo
+    list-style-type: none;
+    // Por defecto suele tener un cierto margen una lista, asi que se lo saco
+    margin: 0;
+    //Idem para el padding
+    padding: 0;
+    //Especifico el tamaño total que va a tomar la lista
+    width: 200px;
+    // Una fondo para toda la lista
+    background-color: #f1f1f1;
+}
+
+li a {
+    // Aca me aseguro que el coloreo no se haga solo sobre lo que ocupa el texto
+    display: block;
+    // Le doy un color a la letra
+    color: #000;
+    //Agrego un padding right-left:8px top-buttom:16px
+    padding: 8px 16px;
+    // Le saco la decoracion, normalmente esta en azul y subrayado.
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    //cuando el mouse esta encima coloco este color
+    //Y el texto se pone en blanco
+    background-color: #555;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>Vertical Navigation Bar</h2>
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+</body>
+</html>
+
+/*Este ejemplo muestra un navigation bar y texto al lado*/
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    //Acá esta la magia, hace que tengo la posicion por defecto, mas alla del scroll
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+//Y aca seteo la posicion del texto, creo que es con el margin-left, sí, se
+//seteo a mano para que queden bien
+<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+  <h2>Fixed Full-height Side Nav</h2>
+  <h3>Try to scroll this area, and see how the sidenav sticks to the page</h3>
+  <p>Notice that this div element has a left margin of 25%. This is because the side navigation is set to 25% width. If you remove the margin, the sidenav will overlay/sit on top of this div.</p>
+  <p>Also notice that we have set overflow:auto to sidenav. This will add a scrollbar when the sidenav is too long (for example if it has over 50 links inside of it).</p>
+  <p>Some text..</p>
+  <p>Some text..</p>
+  <p>Some text..</p>
+  <p>Some text..</p>
+  <p>Some text..</p>
+  <p>Some text..</p>
+  <p>Some text..</p>
+</div>
+
+</body>
+</html>
+
+
+
+/*HORIZONTAL NAVIGATION BAR*/
+
+En los ejemplos se usa display:inline; pero se aplica sobre ul y no sobre li.
+
+OTRO CAMINO
+
+En este camino si se aplica sobre cada elemento
+
+li {
+    float: left;
+}
+
+a {
+    Aca se el block, solo para que se cree un recuadro teniendo en cuenta el padding,
+    si se saca se colorea solo lo que ocupa el texto ignorando la propiedad padding que se le pasa.
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+
+
+/*DROPDOWN MENU*/
+
+Despues lo veo con mas ganas.
+
+
+/*TOOLTIP*/
+<!DOCTYPE html>
+<html>
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+</style>
+<body style="text-align:center;">
+
+<p>Move the mouse over the text below:</p>
+
+<div class="tooltip">Hover over me
+  //Aca esta el texto que va aparecer cuando ponga el mouse encima
+  <span class="tooltiptext">Tooltip text</span>
+</div>
+
+<p>Note that the position of the tooltip text isn't very good. Go back to the
+tutorial and continue reading on how to position the tooltip in an desirable way.</p>
+
+</body>
+</html>
+
+Explicacion:
+Primero que hay que notar que tenemos 2 clases, una es la cual se le coloca el
+mouse encima y la otra es la que aparece una vez que pusimos el mouse encima.
+
+
+
+CODIGO PARA ANIMAR UN BUSCADOR
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+</head>
+<body>
+
+<p>Animated search input:</p>
+
+<form>
+  <input type="text" name="search" placeholder="Search..">
+</form>
+
+</body>
+</html>
+
+
+
+
+CSS3
+
+/*BORDER RADIUS*/
+
+Ahora puedo especificar el corner-radius de cada esquina
+
+/*BACKGROUND IMAGE*/
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#example1 {
+   //Aca estoy insertando 2 imagenes como background
+    background-image: url(img_flwr.gif), url(paper.gif);
+    //Defino la posicion de cada imagen
+    background-position: right bottom, left top;
+    //Para que no se repita
+    background-repeat: no-repeat, repeat;
+    padding: 15px;
+}
+</style>
+</head>
+<body>
+
+<div id="example1">
+<h1>Lorem Ipsum Dolor</h1>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+</div>
+
+</body>
+</html>
+
+
+3 imanges en una linea
+
+#example1 {
+    background: url(img_flwr.gif) left top no-repeat, url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat;
+    padding: 15px;
+    background-size: 50px, 130px, auto;
+}
+
+
+/*SHADOW*/
+/*Esto esta bueno para usar de manera discreta(MUY DISCRETA), ojo que hay las
+versiones mas viejas soportan lo que seria el box-shadow*/
+
+
+
+/*transition*/
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    /*Aca esta la magia*/
+    transition: width 2s;
+}
+
+div:hover {
+    width: 300px;
+}
+
+/*OBS: SI quiero que de manera efecto se haga tanto con width y height
+tengo que poner*/
+div{
+  transition: width 2s,height 2s;
+}
+/*Y no:*/
+div{
+  transition: width 2s;
+  transition: height 2s;
+}
+
+
+/*Se puede meter un dilay*/
+
+div{
+  transition: width 2s;
+  transiction-delay:1s;
+}
+
+
+
+
+
+
+
+/*
+IMAGE
+Esto esta bueno para crear un perfil y pedir que cambie foto
+
+*/
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
+</head>
+<body>
+
+<h2>Fade in a Box</h2>
+
+<div class="container">
+  <img src="img_avatar.png" alt="Avatar" class="image" style="width:100%">
+  <div class="middle">
+    <div class="text">John Doe</div>
+  </div>
+</div>
+
+</body>
+</html>

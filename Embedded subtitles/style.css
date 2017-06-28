@@ -1,42 +1,34 @@
-:root {
-  --width-video: 854px;
-  --height-video: 480px;
-  --height-container-down: var(--height-video)*0.5;
+#caption{
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 300px;
+  overflow-y:scroll;
+  position: fixed;
 }
-/**/
-#player{
-  width:var(--width-video);
-  height:var(--height-video);
-}
-/**/
-.container{
-  position: relative;
-}
-/**/
-.container_down{
-  width:var(--width-video);
-  height:var(--height-container-down);
-}
-/*La posicion es relativo al que lo contiene*/
+
 
 #chapters{
-  float:left;
-  position: relative;
-  top:0px;
-  width:200px;
-  height:var(--height-container-down);
-  overflow:auto;
-  background-color: blue;
-
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  width: 100%;
 }
 
-/*La posicion es relativo al que lo contiene*/
-#caption{
-  position: fixed;
-  left:350px;
-  width:505px;
-  height:480px;
-  overflow:auto;
-  background-color: green;
-
+p.line{
+  padding:8px;
+  margin-left:10px;
+}
+p.chapter{
+  padding:8px;
+}
+.center{
+  margin:auto;
+  /*ocupo un 60% del tamaño visible para el largo*/
+  width: 60%;
+  /*Agrego un padding de 25px alrededor del texto*/
+  padding: 10px;
+  background-color: lightblue;
+  /*El texto 'Tema' aparezca en el centro del elemento que lo contiene*/
+  text-align: center;
+  /*Declaro el font de prioridad más alta a la mas baja*/
+  font-family: Arial, Helvetica, sans-serif;
 }

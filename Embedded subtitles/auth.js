@@ -3,10 +3,10 @@ var apiKey = 'AIzaSyDzoMsJhn_M0SxmINUzW9lJ7cEXNHJOfCA';
 //Es para identificar que API y versión voy a utilizar
 var discoveryDocs = ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"];
 //Id User de la cuenta cead.fiuba14@gmail.com
-var clientId = '223976978127-egnpt8tu7bf32cqf2h2m7qor7lbe20b6.apps.googleusercontent.com';
+var clientId = '223976978127-44snhsbc4if0gv075383rg6974fgfdfb.apps.googleusercontent.com';
 //Scope de youtube que voy a utilizar, determinar que si voy a administrador
 //información y/o visualizarla, en este caso accedo a información privada.
-var scopes = 'https://www.googleapis.com/auth/youtubepartner';
+var scopes = 'https://www.googleapis.com/auth/youtube.force-ssl';
 
 
 var authorizeButton = document.getElementById('authorize-button');
@@ -24,14 +24,34 @@ function initClient() {
       apiKey: apiKey,
       discoveryDocs: discoveryDocs,
       clientId: clientId,
-      scope: scopes
+      scope: scopes,
   }).then(function () {
-    // Listen for sign-in state changes.
-    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-    // Handle the initial sign-in state.
-    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    authorizeButton.onclick = handleAuthClick;
-    signoutButton.onclick = handleSignoutClick;
+      // // Listen for sign-in state changes.
+     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+     // // Handle the initial sign-in state.
+     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+     authorizeButton.onclick = handleAuthClick;
+     signoutButton.onclick = handleSignoutClick;
+    gapi.auth2.authorize({
+      client_id: clientId,
+      scope: 'email profile openid',
+      response_type: 'token',
+      promt: 'none'
+    }, function(response) {
+      if (response.error) {
+      // An error happened!
+      console.log('An error happened:'+response.error);
+    }
+  // The user authorized the application for the scopes requested.
+    var accessToken = response.access_token;
+    var idToken = response.id_token;
+    console.log('Tudo beim');
+    console.log('response:'+response.access_token);
+    console.log('response:'+response.id_token);
+    updateSigninStatus(true);
+  // You can also now use gapi.client to perform authenticated requests.
+});
+
   });
 }
 

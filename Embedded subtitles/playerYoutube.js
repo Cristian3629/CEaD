@@ -7,8 +7,9 @@
   function onYouTubeIframeAPIReady(){
     player = new YT.Player('player', {
       height: '390',
-      width: '640',
+      width: '100%',
       videoId: videoId,
+      playerVars: { 'autoplay': 1, 'controls': 1 ,'rel':0 ,'modestbranding':1,'showinfo':0,'fs':0},
       events: {
         //dado los eventos, indico a que funciones llamo. aca deberia hacer dado
         //que se esta reproduciendo, llamar a una funcion mia.
